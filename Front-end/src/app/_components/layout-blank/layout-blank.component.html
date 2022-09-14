@@ -1,0 +1,20 @@
+<div class="wrapper">
+  <app-sidebarmenu></app-sidebarmenu>
+  <div class="main">
+    <app-navbartop-component></app-navbartop-component>
+    <main class="content p-0 m-0">
+      <div class="container-fluid p-0 m-0">
+        <div class="col p-0 m-0" style="max-height: calc(100vh - 65px); overflow-y: scroll">
+          <div class="col m-0 pl-2 pr-0">
+            <div class="card m-0 px-1 mt-2" style="min-height: calc(100vh - 118px)">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+          <div class="col p-0 m-0">
+            <app-footer></app-footer>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>

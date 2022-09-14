@@ -1,0 +1,15 @@
+:host >>> .ngb-dp-arrow {
+  flex-grow: 0 !important;
+}
+
+:host >>> [title="Select month"] {
+  flex-shrink: 0.7;
+}
+
+:host >>> div.invalid .multiselect-dropdown > div > span.dropdown-btn {
+  border-color: #dc3545 !important;
+}
+
+:host >>> div.valid .multiselect-dropdown > div > span.dropdown-btn {
+  border-color: #28a745 !important;
+}

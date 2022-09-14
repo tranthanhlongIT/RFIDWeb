@@ -1,0 +1,69 @@
+<div class="row justify-content-between m-0 p-0">
+  <!--Toolbar lg begin-->
+  <div class="col-auto d-none d-sm-block p-0">
+    <div class="btn-toolbar col-auto p-0" style="margin-bottom: 1px" role="toolbar">
+      <ng-container *ngFor="let btnGrp of _btns">
+        <div class="btn-group" role="group">
+          <ng-container *ngFor="let btn of btnGrp">
+            <button class="btn btn-sm {{ btn.classBtn }} mr-1" (click)="click(btn.action)" *ngIf="!btn.isDisabled">
+              <i [class]="btn.classIcon"></i>
+              {{ btn.title }} {{btn.isDisabled}}
+            </button>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <!--Toolbar lg end-->
+  <!--Toolbar mobile begin-->
+  <div class="col-auto d-sm-none d-block m-0 p-0">
+    <div class="btn-toolbar col-auto p-0" style="margin-bottom: 1px" role="toolbar">
+      <ng-container *ngFor="let btnGrp of _btns">
+        <div class="btn-group" role="group">
+          <ng-container *ngFor="let btn of btnGrp">
+            <button class="btn btn-sm {{ btn.classBtn }} mr-1" (click)="click(btn.action)" *ngIf="!btn.isDisabled">
+              <i [class]="btn.classIcon"></i>
+            </button>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+  <!--Toolbar mobile end-->
+  <div class="col-auto" *ngIf="dataSource.isSearch">
+    <div class="row">
+      <div class="col-auto d-none d-sm-inline-block">
+        <a href="hethong/nhanvien0">
+          <button class="btn btn-sm btn-light border" type="button">
+            <i class="fas fa-list">&nbsp;List</i>
+          </button>
+        </a>
+        <a href="hethong/nhanvien1">
+          <button class="btn btn-sm btn-light border mr-1" type="button">
+            <i class="fas fa-th">&nbsp;Box</i>
+          </button>
+        </a>
+        <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="collapse"
+          data-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
+          Tìm kiếm
+        </button>
+      </div>
+      <div class="col-auto d-sm-none">
+        <a href="hethong/nhanvien0">
+          <button class="btn btn-sm btn-light border" type="button">
+            <i class="fas fa-list"></i>
+          </button>
+        </a>
+        <a href="hethong/nhanvien1">
+          <button class="btn btn-sm btn-light border mr-1" type="button">
+            <i class="fas fa-th"></i>
+          </button>
+        </a>
+        <button class="btn btn-sm btn-primary dropdown-toggle" type="button" data-toggle="collapse"
+          data-target="#collapseSearch" aria-expanded="false" aria-controls="collapseSearch">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

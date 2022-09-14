@@ -1,0 +1,118 @@
+<nav class="d-flex align-items-center mt-2">
+    <ul class="pagination align-items-center mb-0">
+      <li class="page-item" (click)="selectPage('1')">
+        <button class="page-link text-primary" aria-label="First">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-chevrons-left align-middle me-2"
+          >
+            <polyline points="11 17 6 12 11 7"></polyline>
+            <polyline points="18 17 13 12 18 7"></polyline>
+          </svg>
+        </button>
+      </li>
+      <li
+        class="page-item text-primary"
+        (click)="selectPage((currentPage - 1).toString())"
+      >
+        <button class="page-link text-primary" aria-label="Previous">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-chevron-left align-middle me-2"
+          >
+            <polyline points="15 18 9 12 15 6"></polyline>
+          </svg>
+        </button>
+      </li>
+
+      <span class="mx-2">Trang</span>
+
+      <li class="page-item">
+        <input
+          #i
+          type="text"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          class="form-control"
+          id="pageNumberInput"
+          [(ngModel)]="currentPage"
+          (keyup.enter)="selectPage(i.value)"
+          (blur)="selectPage(i.value)"
+          (input)="formatInput($any($event).target)"
+          aria-labelledby="paginationInputLabel paginationDescription"
+          style="width: 2.5rem"
+          required
+        />
+      </li>
+
+      <span class="mx-2">trên {{ maxPage }}</span>
+
+      <li
+        class="page-item text-primary"
+        (click)="selectPage((currentPage + 1).toString())"
+      >
+        <button class="page-link text-primary" aria-label="Next">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-chevron-right align-middle me-2"
+          >
+            <polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+        </button>
+      </li>
+      <li
+        class="page-item text-primary"
+        (click)="selectPage(maxPage.toString())"
+      >
+        <button class="page-link text-primary" aria-label="Last">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="feather feather-chevrons-right align-middle me-2"
+          >
+            <polyline points="13 17 18 12 13 7"></polyline>
+            <polyline points="6 17 11 12 6 7"></polyline>
+          </svg>
+        </button>
+      </li>
+
+      <li class="page-item">
+        <select class="form-select" style="padding-right: 40px;" id="itemsPerPageSelect" [value]="itemsPerPage" (change)="onItemsPerPageChange($event.target.value)">
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+        </select>
+      </li>
+    </ul>
+  </nav>

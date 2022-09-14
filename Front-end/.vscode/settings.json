@@ -1,0 +1,6 @@
+{
+    "svn.delete.ignoredRulesForDeletedFiles": [
+        "dist\\aimsproweb"
+    ],
+    "angular.enable-strict-mode-prompt": false
+}

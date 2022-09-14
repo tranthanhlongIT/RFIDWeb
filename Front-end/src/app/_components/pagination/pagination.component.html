@@ -1,0 +1,56 @@
+ 
+  <nav class="d-flex align-items-center pt-2" *ngIf="_collectionSize > 13">
+    <ul class="pagination align-items-center mb-0">
+      <li class="page-item" (click)="selectPage('1')">
+        <button class="page-link text-primary" aria-label="First" style="min-width: 50px;">
+          <i class="fas fa-chevron-left"></i>
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </li>
+      <li class="page-item text-primary" (click)="selectPage((currentPage - 1).toString())">
+        <button class="page-link text-primary" aria-label="Previous" style="min-width: 50px;">
+          <i class="fas fa-chevron-left"></i>
+        </button>
+      </li>
+
+      <span class="mx-2 d-none d-sm-inline-block">Trang</span>
+      <span class="ml-1 d-inline-block d-sm-none d-md-none d-lg-none d-xl-none"></span>
+
+      <li class="page-item">
+        <input #i type="text" inputmode="numeric" pattern="[0-9]*" class="form-control" id="pageNumberInput"
+          [(ngModel)]="currentPage" (keyup.enter)="selectPage(i.value)" (blur)="selectPage(i.value)"
+          (input)="formatInput($any($event).target)" aria-labelledby="paginationInputLabel paginationDescription"
+          style="width: 65px;" required />
+      </li>
+
+      <span class="mr-1 d-inline-block d-sm-none d-md-none d-lg-none d-xl-none"></span>
+      <span class="mx-2 d-none d-sm-inline-block" style="white-space: nowrap">/ {{ maxPage }}</span>
+
+      <li class="page-item text-primary" (click)="selectPage((currentPage + 1).toString())">
+        <button class="page-link text-primary" aria-label="Next" style="min-width: 50px;">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </li>
+      <li class="page-item text-primary" (click)="selectPage(maxPage.toString())">
+        <button class="page-link text-primary" aria-label="Last" style="min-width: 50px;">
+          <i class="fas fa-chevron-right"></i>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </li>
+
+      <li class="page-item">
+        <select class="form-select ml-1" style="border-radius: 0;" id="itemsPerPageSelect" [value]="itemsPerPage"
+          (change)="onItemsPerPageChange($event.target.value)">
+          <option value="10">10</option>
+          <option value="20">20</option>
+          <option value="30">30</option>
+          <option value="50">50</option>
+          <option value="75">75</option>
+          <option value="100">100</option>
+          <option value="150">150</option>
+          <option value="200">200</option>
+        </select>
+      </li>
+    </ul>
+  </nav>
+ 

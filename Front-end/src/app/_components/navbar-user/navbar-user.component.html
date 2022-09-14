@@ -1,0 +1,163 @@
+<a
+  class="nav-icon dropdown-toggle d-inline-block d-sm-none"
+  href="#"
+  data-toggle="dropdown"
+>
+  <i class="align-middle" data-feather="settings"></i>
+</a>
+<a
+  class="nav-link dropdown-toggle d-none d-sm-inline-block"
+  href="#"
+  data-toggle="dropdown"
+>
+  <img [src]="avatarSrc" class="avatar img-fluid rounded mr-1" />
+  <span class="text-dark">{{ currentTokenUser.fullname }}</span>
+</a>
+<div class="dropdown-menu dropdown-menu-right">
+  <a class="dropdown-item" href="thongtintaikhoan"
+    ><i class="align-middle mr-1 fas fa-user"></i> Thông tin tài khoản</a
+  >
+  <a class="dropdown-item" (click)="openModal()">
+    <i class="fas fa-edit"></i>
+    Đổi mật khẩu</a
+  >
+  <div class="dropdown-divider"></div>
+  <a class="dropdown-item" (click)="logout()"
+    ><i class="align-middle mr-1 fas fa-sign-out-alt"></i> Đăng xuất</a
+  >
+</div>
+<ng-template #formModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">
+      <i class="fas fa-info-circle"></i>
+      Đổi mật khẩu
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    ></button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col-12">
+        <!-- <h5 class="h5line">Đổi mật khẩu tài khoản</h5>
+        <hr class="hrline" /> -->
+        <div class="row">
+          <div class="col-12 form-group mb-2">
+            <label>
+              Mật khẩu cũ
+              <span class="text-danger"
+                >*<small
+                  *ngIf="
+                    CurrentPassword.invalid &&
+                    (CurrentPassword.dirty || CurrentPassword.touched)
+                  "
+                  >(Không được bỏ trống)</small
+                >
+              </span>
+            </label>
+            <input
+              class="form-control"
+              type="password"
+              [(ngModel)]="currentPassword"
+              #CurrentPassword="ngModel"
+              required
+              maxlength="50"
+              [ngClass]="{
+                'is-invalid':
+                  CurrentPassword.invalid &&
+                  (CurrentPassword.dirty || CurrentPassword.touched),
+                'is-valid':
+                  !CurrentPassword.invalid &&
+                  (CurrentPassword.dirty || CurrentPassword.touched)
+              }"
+            />
+          </div>
+          <div class="col-12 form-group mb-2">
+            <label>
+              Mật khẩu mới
+              <span class="text-danger"
+                >*<small
+                  *ngIf="
+                    NewPassword.invalid &&
+                    (NewPassword.dirty || NewPassword.touched)
+                  "
+                  >(Không được bỏ trống)</small
+                >
+              </span>
+            </label>
+            <input
+              class="form-control"
+              type="password"
+              [(ngModel)]="newPassword"
+              #NewPassword="ngModel"
+              required
+              malength="50"
+              [ngClass]="{
+                'is-invalid':
+                  NewPassword.invalid &&
+                  (NewPassword.dirty || NewPassword.touched),
+                'is-valid':
+                  !NewPassword.invalid &&
+                  (NewPassword.dirty || NewPassword.touched)
+              }"
+            />
+          </div>
+          <div class="col-12 form-group mb-2">
+            <label>
+              Xác nhận mật khẩu mới
+              <span class="text-danger"
+                >*<small
+                  *ngIf="
+                    ConfirmPassword.invalid &&
+                    (ConfirmPassword.dirty || ConfirmPassword.touched)
+                  "
+                  >(Không được bỏ trống)</small
+                >
+              </span>
+            </label>
+            <input
+              class="form-control"
+              type="password"
+              [(ngModel)]="confirmPassword"
+              #ConfirmPassword="ngModel"
+              required
+              malength="50"
+              [ngClass]="{
+                'is-invalid':
+                  ConfirmPassword.invalid &&
+                  (ConfirmPassword.dirty || ConfirmPassword.touched),
+                'is-valid':
+                  !ConfirmPassword.invalid &&
+                  (ConfirmPassword.dirty || ConfirmPassword.touched)
+              }"
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-12 mt-2">
+        <div class="row justify-content-between">
+          <div class="col-auto"></div>
+          <div class="col-auto">
+            <button
+              class="btn btn-primary mr-2"
+              type="button"
+              (click)="changePass()"
+            >
+              <i class="fas fa-save"></i> Ghi nhận
+            </button>
+            <button
+              class="btn btn-warning"
+              type="button"
+              (click)="modal.dismiss()"
+            >
+              <i class="fas fa-chevron-left"></i> Quay về
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="input-group">
+    <input
+      [disabled]="isDisabled"
+      class="form-control"
+      placeholder="ngày/tháng/năm"
+      [(ngModel)]="_date"
+      (dateSelect)="change($event)"
+      ngbDatepicker
+      #datepicker="ngbDatepicker"
+      [minDate]="minDate"
+      [maxDate]="maxDate"
+    />
+    <button
+      class="btn calendar border"
+      style="border-color: #ced4da !important"
+      (click)="datepicker.toggle()"
+      type="button"
+    >
+      <i class="fas fa-calendar"></i>
+    </button>
+  </div>
+</div>
